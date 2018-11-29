@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Wizarding World!</title>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_939914_t3m95k88g9p.css">
+
+	<style>
+		html,body {
+			height: 100%;
+		}
+		header {
+			height: 100%;
+			background: #000 url(https://photo.16pic.com/00/07/65/16pic_765413_b.jpg) no-repeat center/cover;
+		}
+
+		header .logo {
+			font: oblique 200 40px/1.5 FangSong,Helvetica,Georgia,arial;
+			float: left;
+			color: #e8ed11;
+			margin-top: 10px;
+			margin-left: 5px;
+		}
+
+		header ul {
+			float: right;
+			margin-top: 10px;
+			margin-right: 10px;
+		}
+
+		header ul>li {
+			float: left;
+			margin: 10px;
+		}
+
+		header nav a {
+			font: 14px/1.5 arial;
+			color: #fff;
+			padding: 5px;
+			border-radius: 3px;
+		}
+
+		header nav a:hover {
+			background-color: #26e7e0;	
+		}
+
+		header .entry-page {
+			color: #fff;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			text-align: center;
+		}
+
+		header .entry-page h2 {
+			font-size: 28px;
+		}
+
+		header .entry-page h3 {
+			font-size: 37px;
+			margin-top: 20px;
+			width: 800px;
+		}
+
+		header .entry-page a {
+			color: #fff;
+			font-size: 20px;
+			margin-top: 30px;
+			display: inline-block;
+			background-color: #f5623f;
+			border-radius: 3px;
+			padding: 5px 10px;
+		}
+
+		header .entry-page a:hover {
+			background-color: #26e7e0;
+		}
+
+		section {
+			text-align: center;
+			border: 1px solid transparent;
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+
+		section>h2 {
+			font-size: 35px;
+		}
+
+		section>p {
+			margin: 20px auto;
+			width: 900px;
+			color: #666;
+			font-style: oblique;
+		}
+
+		section:nth-of-type(even) {
+			background-color: #d5e6f5;
+		}
+
+		#school-intro>ul {
+			padding: 30px;
+		}
+
+		#school-intro li .iconfont {
+			font-size: 100px;
+			color: #dd64de;
+		}
+
+		#school-intro li {
+			float: left;
+			width: calc(33.33% - 50px);
+			margin: 20px;
+		}
+
+		#school-intro li>h4 {
+			font-size: 20px;
+			margin-top: 10px;
+			font-weight: bold;
+		}
+
+		#school-intro li>p {
+			margin-top: 10px;
+			text-align: center;
+			font-size: 14px;
+		}
+		
+		#academy-intro>.academy {
+			margin: 30px auto;
+			width: 1000px;
+		}
+
+		#academy-intro figure {
+			float: left;
+			width: calc(50% - 60px);
+			margin: 30px;
+			height: 400px;
+		}
+
+		#academy-intro figure a {
+			height: 250px;
+			display: block;
+			position: relative;
+		}
+
+		#academy-intro figure img {
+			height: 100%;
+			width: 100%;
+		}
+
+		#academy-intro figure .hover-icon-plus {
+			background-color: #fdec6b;
+			opacity: 0.9;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			display: none;
+		}
+
+		#academy-intro figure .iconfont {
+			position: absolute;
+			top: 50%;
+			transform: translate(-45%,-45%);
+			font-size: 100px;
+			color: #fff;
+		}
+
+		#academy-intro figure a:hover .hover-icon-plus {
+			display: block;
+		}
+		
+		#academy-intro figure .figure-text {
+			background-color: #fff;
+			height: 150px;
+			padding-top: 10px;
+		}
+
+		#academy-intro figure figcaption {
+			font-size: 20px;
+			padding: 5px;
+			font-weight: bold;
+		}
+
+		#academy-intro figure p {
+			font-style: oblique;
+			color: #666;
+			margin-top: 10px;
+		}
+
+
+		#story-outline ul {
+			margin: 30px auto;
+			width: 1000px;
+		}
+
+		#story-outline ul img, 
+		#story-outline ul .line-end {
+			height: 100px;
+			width: 100px;
+			border-radius: 50%;
+			border: 2px solid #cef9f9;
+		}
+
+
+		#story-outline ul>li::after {
+			content:'';
+			display: block;
+			clear: both; 
+		}
+
+		#story-outline ul>li {	
+			margin-top: 50px;
+			height: 200px;
+			position: relative;
+		}
+
+		#story-outline ul>li:nth-child(odd) {
+			padding-right: calc(50% - 50px);
+			text-align: right;
+			font-size: 12px;
+		}
+
+		#story-outline ul>li:nth-child(even) {
+			padding-left: calc(50% - 50px);
+			text-align: left;
+			font-size: 12px;
+		}
+
+
+		#story-outline ul>li:nth-child(odd)>img {
+			float: right;
+		}
+
+		#story-outline ul>li:nth-child(even)>img {
+			float: left;
+		}
+
+		#story-outline ul>li:nth-child(odd)>dl {
+			margin-right: 120px;
+		}
+
+		#story-outline ul>li:nth-child(even)>dl {
+			margin-left: 120px;
+		}
+
+		#story-outline ul>li dh {
+			font-size: 15px;
+			font-weight: bold;
+			margin-top: 3px;
+		}
+
+		#story-outline li dd:nth-of-type(1) {
+			font-size: 12px;
+			font-weight: bold;
+			margin-top: 2px;
+		}
+
+		#story-outline ul>li::before {
+			content:'';
+			display: inline-block;
+			width: 2px;
+			height: 150px;
+			background-color: #cef9f9;
+			position: absolute;
+			left: calc(50% - 2px);
+			top: 100px;
+		}
+
+		#story-outline ul>li:last-child::before {
+			height: 0;
+		}
+
+		#story-outline ul>li .line-end {
+			display: inline-block;
+			padding:20px 28px;
+			font-size: 20px;
+			font-weight: bold;
+			background-color: #e67a46;
+			color: #fff;
+		}
+
+
+		#main-character>ul {
+			width: 1000px;
+			margin: 0 auto;
+		}
+
+		#main-character>ul>li {
+			float: left;
+			width: calc(30% - 10px);
+			margin:20px;
+		}
+
+		#main-character>ul>li img {
+			width: 180px;
+			height: 180px;
+			border-radius: 50%;
+			border: 3px solid #dcf9dc;
+		}
+
+		#main-character>ul>li h5 {
+			font-size: 17px;
+			margin-top: 5px;
+		}
+
+		#main-character ul>li h6 {
+			font-size: 13px;
+			margin-top: 5px;
+			color: #777;
+			font-style: oblique;
+		}
+		
+	  .social-bottons {
+			margin: 20px auto;
+			width: 80%;
+		}
+		.social-bottons>li {
+			float: left;
+			width: 33.333% ;
+		}
+
+		.social-bottons .iconfont {
+			font-size: 40px;
+			color: #111;
+		}
+
+		.social-bottons a:hover .iconfont {
+			color: #f1a10b;
+		}
+
+		#friend-link {
+			background-color: #eee;
+		}
+
+		#friend-link>.container a {
+			height: 150px;
+			float: left;
+			width: 25%;
+		}
+
+		#friend-link>.container img {
+				height: 100%;
+				width: 100%;
+		}
+
+
+		#contact-us {
+			background: #111 url(http://pic1.win4000.com/wallpaper/f/541164c14c62b.jpg) no-repeat center/cover;
+		}
+
+		#contact-us>h2 {
+			color: #fff;
+		}
+
+		#contact-us>p {
+			color: #999;
+		}
+
+		#contact-us>.wrap {
+			margin: 50px auto;
+			width: 1000px;
+		}
+
+		#contact-us>.wrap>div {
+			float: left;
+			width: 50%;
+		}
+
+		#contact-us>.wrap input {
+			width: 80%;
+			height: 50px;
+			margin: 5px;
+			border-radius: 5px;
+			border: 2px solid #ccc;
+			outline: none;
+			padding-left: 15px;
+		}
+
+		#contact-us>.wrap input:focus {
+			border-color: #fed136;
+		}
+
+		#contact-us>.wrap textarea {
+			width: 80%;
+			height: 170px; 
+			margin: 5px;
+			border-radius: 5px;
+			border: 2px solid #ccc;
+			outline: none;
+			font-family: Arial;
+			resize: none;
+			padding: 15px;
+		}
+
+		#contact-us>.wrap textarea:focus {
+			border-color: #fed136;
+		}
+
+		#contact-us .submit-btn {
+			color: #fff;
+			font: 18px/1.2 Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+			padding: 15px 30px;
+			background-color: #fdb327;
+			border-color: #fdb327;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		#contact-us .submit-btn:hover {
+			background-color: #ea9c08;
+		}
+
+		footer .container .row {
+			margin: 2px;
+			height: 80px;
+		}
+
+		.col-3 {
+			float: left;
+			width: 33.33%;
+			height: 100%;
+			text-align: center;
+			position: relative;
+		}
+
+		footer .col-3>span {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			font-size: 12px;
+		}
+
+		footer .col-3>.notify {
+			width: 100%;
+			height: 100%;
+			padding-left: 60px;
+			padding-right: 60px;
+		}
+
+		footer .col-3>.notify>li {
+			float: left;
+			width: 50% ;
+			height: 100%;
+			position: relative;
+		}
+
+		footer .notify a {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%); 
+			font-size: 13px;
+			width:100%;
+			color: #efa008;
+		}
+
+		footer .notify a:hover {
+			text-decoration: underline;
+		}
+
+
+
+
+
+
+	</style>
+</head>
+<body>
+	<!-- header -->
+		<header>
+			<div class="navbar clearfix">
+				<a class="logo" href="#">Harry Potter</a>
+				<nav>
+					<ul>
+						<li><a href="#school-intro">HOGWARTS</a></li>
+						<li><a href="#academy-intro">ACADEMY INTRODUCE</a></li>
+						<li><a href="#story-outline">STORY OUTLINE</a></li>
+						<li><a href="#main-character">MAIN CHARACTERS</a></li>
+						<li><a href="#contact-us">CONTACT</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="entry-page">
+				<h2>Welcome To Wizard World!</h2>
+				<h3>The wizarding world of Harry Potter</h3>
+				<a href="#contact-us">Tell me more</a>
+			</div>
+		</header>
+
+		<!-- main -->
+		<main>
+			<!-- section-one -->
+			<section id="school-intro">
+				<h2>HOGWARTS</h2>
+				<p>A huge, rambling, quite scary-looking castle, with a jumble of towers and battlements. Like the Weasleys' house, it isn't a building that Muggles could build, because it is supported by magic.</p>
+				<ul class="clearfix">
+					<li>
+						<span class="iconfont icon-curriculum"></span>
+						<h4>School Curriculum</h4>
+						<p>First-year students must study seven courses: Metamorphosis, Mantra, Potions, Magic History, Defence Against the Dark Arts, Astronomy, and Herbalism. Flight classes (ride brooms) are also compulsory courses. At the end of the second year of Hogwarts, students are required to take at least two courses in the following course list: Arithmetic Divination, Muggle Studies, Divination, Ancient Text Studies, and Magical Protection. If the demand is strong, a highly professional discipline like alchemy can also be taken in the last two years.</p>
+					</li>
+					<li>
+						<span class="iconfont icon-time-turner"></span>
+						<h4>Time Turner</h4>
+						<p>In her third year at Hogwarts, Hermione got this magical instrument from Professor McGonagall, which allowed Hermione to return to more classes a few hours ago. It is one of Hermi and Ha used to save Sirius.</p>
+					</li>
+					<li>
+						<span class="iconfont icon-ghost"></span>
+						<h4>Ghostes</h4>
+						<p>The four colleges of Hogwarts have their own ghosts.Slytherin had a bloody Barrow, and his body was covered with silver blood. The most inconspicuous college ghost is Mrs. Gray, she is a long-haired beauty.The ghost of Hufflepuff is a fat monk.Gryffindor’s Academy Ghost is a little bit of Nick, a snobbish and somewhat self-righteous wizard.There is also a famous ghost that is crying Myrtle, she is in a remote women's bathroom.</p>
+					</li>
+				</ul>
+			</section>
+			<!-- section-two -->
+			<section id="academy-intro"> 
+				<h2>ACADEMY INTRODUCE</h2>
+				<p>Hogwarts is divided into four houses, each bearing the last name of its founder: Godric Gryffindor, Salazar Slytherin, Rowena Ravenclaw and Helga Hufflepuff. </p>
+				<div class="clearfix academy">
+					<figure>
+							<a href="">
+								<div class = "hover-icon-plus">
+									<i class="iconfont icon-plus"></i>
+								</div>
+								<img src="https://pic1.zhimg.com/v2-dbf59428102c9e43e5887ad01776a510_b.jpg" alt="">
+							</a>
+							<div class="figure-text">
+								<figcaption>Gryffindor</figcaption>
+								<p>Gryffindor values courage, bravery, nerve, and chivalry. Gryffindor's mascot is the lion, and its colours are scarlet and gold</p>
+							</div>
+					</figure>
+					<figure>
+						<a href="">
+							<div class = "hover-icon-plus">
+								<i class="iconfont icon-plus"></i>
+							</div>
+							<img src="https://pic2.zhimg.com/v2-19927ead4ac31a8ed05214c6fd78cd2d_b.gif" alt="">
+						</a>
+						<div class="figure-text">
+							<figcaption>Hufflepuff</figcaption>
+							<p>Hufflepuff values hard work, patience, justice, and loyalty. The house mascot is the badger, and canary yellow and black are its colours. </p>
+						</div>
+					</figure>
+					<figure>
+						<a href="">
+							<div class = "hover-icon-plus">
+								<i class="iconfont icon-plus"></i>
+							</div>
+							<img src="https://pic2.zhimg.com/v2-ec139a214580a825a5a563377d71357d_b.gif" alt="">
+						</a>
+						<div class="figure-text">
+							<figcaption>Ravenclaw</figcaption>
+							<p>Ravenclaw values intelligence, creativity, learning, and wit.The house mascot is an eagle and the house colours are blue and bronze.</p>
+						</div>
+					</figure>
+					<figure>
+						<a href="">
+							<div class = "hover-icon-plus">
+								<i class="iconfont icon-plus"></i>
+							</div>
+							<img src="https://pic2.zhimg.com/v2-6c9f545846f296f9a447504c9785bc85_b.gif" alt="">
+						</a>
+						<div class="figure-text">
+							<figcaption>Slytherin</figcaption>
+							<p>Slytherin values ambition, cunning, leadership, and resourcefulness.The house mascot of Slytherin is the serpent, and the house colours are green and silver. </p>
+						</div>
+					</figure>
+				</div> 
+			</section>
+			<!-- section-three -->
+			<section id="story-outline">
+				<h2>STORY OUTLINE</h2>
+				<p>Harry Potter is a British-American film series based on the Harry Potter novels by author J. K. Rowling.</p>
+				<ul>
+				 	<li>
+				 		<img src="http://s16.sinaimg.cn/middle/51fc92ban776221b92d0f&690" alt="">
+				 		<dl>
+				 			<dh>2001</dh>
+				 			<dd>Harry Potter and the Philosopher's Stone</dd>
+				 			<dd>Harry Potter is an orphaned boy brought up by his unkind Muggle (non-magical) aunt and uncle. At the age of eleven, half-giant Rubeus Hagrid informs him that he is actually a wizard and that his parents were murdered by an evil wizard named Lord Voldemort. Voldemort also attempted to kill one-year-old Harry on the same night, but his killing curse mysteriously rebounded and reduced him to a weak and helpless form. Harry became extremely famous in the Wizarding World as a result. Harry begins his first year at Hogwarts School of Witchcraft and Wizardry and learns about magic. During the year, Harry and his friends Ron Weasley and Hermione Granger become entangled in the mystery of the Philosopher's Stone which is being kept within the school.</dd>
+				 		</dl>
+				 	</li>
+				 	<li>
+				 		<img src="http://s8.sinaimg.cn/middle/51fc92bana9d55e32c8e7&690" alt="">
+				 		<dl>
+				 			<dh>2002</dh>
+				 			<dd>Harry Potter and the Chamber of Secrets</dd>
+				 			<dd>Harry, Ron, and Hermione return to Hogwarts for their second year, which proves to be more challenging than the last. The Chamber of Secrets has been opened, leaving students and ghosts petrified by an unleashed monster. Harry must face up to claims that he is the heir of Salazar Slytherin (founder of the Chamber), learn that he can speak Parseltongue, and also discover the properties of a mysterious diary, only to find himself trapped within the Chamber of Secrets itself.</dd>
+				 		</dl>
+				 	</li>
+				 	<li>
+				 		<img src="http://s15.sinaimg.cn/middle/51fc92bana9d569eee22e&690" alt="">
+				 		<dl>
+				 			<dh>2004</dh>
+				 			<dd>Harry Potter and the Prisoner of Azkaban</dd>
+				 			<dd>Harry Potter's third year sees the boy wizard, along with his friends, attending Hogwarts School once again. Professor R. J. Lupin joins the staff as Defence Against the Dark Arts teacher, while convicted murderer Sirius Black escapes from Azkaban Prison. The Ministry of Magic entrusts the Dementors of Azkaban to guard Hogwarts from Black. Harry learns more about his past and his connection with the escaped prisoner.</dd>
+				 		</dl>
+				 	</li>
+					<li>
+						<img src="http://s4.sinaimg.cn/middle/51fc92bana9d57115d473&690" alt="">
+						<dl>
+							<dh>2005</dh>
+							<dd>Harry Potter and the Goblet of Fire</dd>
+							<dd>During Harry's fourth year, Hogwarts plays host to a legendary event: the Triwizard Tournament. Three European schools participate in the tournament, with three 'champions' representing each school in the deadly tasks. The Goblet of Fire chooses Fleur Delacour, Viktor Krum, and Cedric Diggory to compete against each other. However, curiously, Harry's name is also produced from the Goblet thus making him a fourth champion, which results in a terrifying encounter with a reborn Lord Voldemort.</dd>
+						</dl>
+					</li>
+					<li>
+						<img src="http://s7.sinaimg.cn/middle/51fc92bana9d57ac79ac6&690" alt="">
+						<dl>
+							<dh>2007</dh>
+							<dd>Harry Potter and the Order of the Phoenix</dd>
+							<dd>Harry's fifth year begins with him being attacked by Dementors in Little Whinging. Later, he finds out that the Ministry of Magic is in denial of Lord Voldemort's return. Harry is also beset by disturbing and realistic nightmares, while Professor Umbridge, a representative of Minister for Magic Cornelius Fudge, is the new Defence Against the Dark Arts teacher. Harry becomes aware that Voldemort is after a prophecy which reveals: "neither can live while the other survives". The rebellion involving the students of Hogwarts, secret organisation Order of the Phoenix, the Ministry of Magic, and the Death Eaters begins.</dd>
+						</dl>	
+					</li>
+					<li>
+						<img src="http://s13.sinaimg.cn/middle/51fc92bana9d58f82b6ec&690" alt="">
+						<dl>	
+							<dh>2009</dh>
+							<dd>Harry Potter and the Half-Blood Prince </dd>
+							<dd>In Harry's sixth year at Hogwarts, Lord Voldemort and his Death Eaters are increasing their terror upon the Wizarding and Muggle worlds. Headmaster Albus Dumbledore persuades his old friend Horace Slughorn to return to Hogwarts as a professor as there is a vacancy to fill. There is a more important reason, however, for Slughorn's return. While in a Potions lesson, Harry takes possession of a strangely annotated school textbook, inscribed 'This is the property of the Half-Blood Prince'. Draco Malfoy struggles to carry out a deed presented to him by Voldemort. Meanwhile, Dumbledore and Harry secretly work together to discover the method on how to destroy the Dark Lord once and for all.</dd>
+						</dl>	
+					</li>
+					<li>
+						<img src="http://s16.sinaimg.cn/middle/51fc92bana9d596ae8b8f&690" alt="">
+						<dl>	
+							<dh>2010</dh>
+							<dd>Harry Potter and the Deathly Hallows – Part 1</dd>
+							<dd>After unexpected events at the end of the previous year, Harry, Ron, and Hermione are entrusted with a quest to find and destroy Lord Voldemort's secret to immortality – the Horcruxes. It is supposed to be their final year at Hogwarts, but the collapse of the Ministry of Magic and Voldemort's rise to power prevents them from attending. The trio undergo a long journey with many obstacles in their path including Death Eaters, Snatchers, the mysterious Deathly Hallows, and Harry's connection with the Dark Lord's mind becoming ever stronger.</dd>
+						</dl>	
+					</li>
+					<li>
+						<img src="http://s5.sinaimg.cn/middle/51fc92ban7762295e4de4&690" alt="">
+						<dl>
+							<dh>2011</dh>
+							<dd>Harry Potter and the Deathly Hallows – Part 2</dd>
+							<dd>After destroying one Horcrux and discovering the significance of the three Deathly Hallows, Harry, Ron and Hermione continue to seek the other Horcruxes in an attempt to destroy Voldemort, who has now obtained the powerful Elder Wand. The Dark Lord discovers Harry's hunt for Horcruxes and launches an attack on Hogwarts School, where the trio return for one last stand against the dark forces that threaten the Wizarding and Muggle worlds.</dd>
+						</dl>
+					</li>
+					<li>
+						<span class="line-end">The End</span>
+					</li>
+				 </ul> 
+			</section>
+			<!-- section four -->
+			<section id="main-character"> 
+				<h2>MAIN CHARACTERS</h2>
+				<p>The series was mainly produced by David Heyman, and stars Daniel Radcliffe, Rupert Grint, and Emma Watson as the three leading characters: Harry Potter, Ron Weasley, and Hermione Granger.</p> 
+				<ul class="clearfix">
+					<li>
+						<img src="https://tse2.mm.bing.net/th?id=OIP.4yOaHEn1VfsEy3vNuuMLJwHaJQ&pid=Api" alt="">
+						<h5>David Heyman</h5>
+						<h6>Harry Potter</h6>
+						<ul class="social-bottons clearfix">
+							<li><a href="#"><i class="iconfont icon-twitter"></i></a></li>
+							<li><a href="#"><i class="iconfont icon-facebook"></i></a></li>
+							<li><a href="#"><i class="iconfont icon-linkedin"></i></a></li>
+						</ul>
+					</li>
+					<li>
+						<img src="http://images6.fanpop.com/image/polls/1491000/1491542_1436384637900_full.jpg?v=1436384808" alt="">
+						<h5>Emma Watson</h5>
+						<h6>Hermione Granger</h6>
+						<ul class="social-bottons clearfix">
+							<li><a href="#"><i class="iconfont icon-twitter"></i></a></li>
+							<li><a href="#"><i class="iconfont icon-facebook"></i></a></li>
+							<li><a href="#"><i class="iconfont icon-linkedin"></i></a></li>
+						</ul>
+					</li>
+					<li>
+						<img src="http://pic.baike.soso.com/p/20130827/20130827154944-1766230357.jpg" alt="">
+						<h5>Rupert Grint</h5>
+						<h6>Ron Weasley</h6>
+						<ul class="social-bottons clearfix">
+							<li><a href="#"><i class="iconfont icon-twitter"></i></a></li>
+							<li><a href="#"><i class="iconfont icon-facebook"></i></a></li>
+							<li><a href="#"><i class="iconfont icon-linkedin"></i></a></li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<aside id="friend-link">
+				<div class="container clearfix">
+					<a href="https://www.pottermore.com/"><img src="images/pottermore.PNG" alt=""></a>
+					<a href="https://en.wikipedia.org/wiki/Harry_Potter"><img src="images/harrypotter.PNG" alt=""></a>
+					<a href="https://en.wikipedia.org/wiki/Hogwarts"><img src="images/hogwarts.PNG" alt=""></a>
+					<a href="https://en.wikipedia.org/wiki/J._K._Rowling"><img src="images/J.K.Rowling.PNG" alt=""></a>
+				</div>
+			</aside>
+			<!-- section five -->
+			<section id="contact-us">  
+				<h2>CONTACT US</h2>
+				<p>if you have any question , please let us know.</p> 
+				<div class="wrap clearfix">
+					<div>
+						<div>
+							<input type="text"  placeholder="YOUR NAME*">
+						</div>
+						<div>
+							<input type="text"  placeholder="YOUR EMAIL*">
+						</div>
+						<div>
+							<input type="text"  placeholder="YOUR PHONE*">
+						</div>
+					</div>
+					<div >
+						<textarea placeholder="YOUR PHONE*"></textarea>
+					</div>
+				</div>
+				<div class="submit">
+					<button class="submit-btn">SEND MESSAGE</button>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<div class="container">
+				<div class="row clearfix">
+					<div class="col-3">
+						<span>Copyright &copy; Your Website 2018</span>
+					</div>
+					<div class="col-3">
+						<ul class="social-bottons clearfix">
+							<li><a href="#"><i class="iconfont icon-twitter"></i></a></li>
+							<li><a href="#"><i class="iconfont icon-facebook"></i></a></li>
+							<li><a href="#"><i class="iconfont icon-linkedin"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-3">
+						<ul class="notify clearfix">
+							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="#">Terms of use</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+</body>
+</html>
